@@ -1,0 +1,172 @@
+$base-color: rgba(84, 17, 17, .2);
+$row: 7;
+$col: 11;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+html, body {height: 100%;}
+button {
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+:root {
+  --col: #{$col};
+  --row: #{$row};
+  --items: 0;
+  --timeout: 2000;
+}
+.js-container {
+  display: grid;
+  grid-template-columns: repeat(var(--col), minmax(calc(100% / var(--col)), 1fr));
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+
+  .item {
+    z-index: 4;
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+.viewport {
+  position: relative;
+  width: 100%;
+  height: 550px;
+  max-height: 100vh;
+  .slide {
+    width: inherit;
+    height: inherit;
+    max-height: inherit;
+    position: absolute;
+    opacity: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    &--active {
+      opacity: 1;
+    }
+  }
+}
+
+.nav {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__control {
+    display: flex;
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+  &:hover {
+    .nav__control {
+      background-color: #242424;
+      opacity: 1;
+      transition: opacity .9s ease, background-color 2s ease;
+    }
+  }
+}
+
+.thumbs {
+  display: flex;
+  justify-content: center;
+  margin: 10px 5px;
+  .thumb {
+    margin: 0 5px;
+  }
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  margin: 15px 15px 20px;
+  > * {
+    height: 28px;
+    border: 1px solid #6f6f6f;
+    margin: 1px 5px;
+  }
+}
+
+.js-animating {
+  .thumbs {
+    cursor: wait;
+  }
+  .js-thumb {
+    pointer-events: none;
+  }
+  [class^="js-"] {
+    pointer-events: none;
+  }
+  .item {
+    animation-name: particles;
+    animation-timing-function: ease-in-out;
+  }
+}
+
+.thumb {
+  cursor: pointer;
+  width: 100px;
+  max-width: calc(20% - 10px);
+  box-shadow: 0 0 7px #000;
+  &:hover {
+    box-shadow: 0 0 2px #000;
+  }
+  &--active {
+    pointer-events: none;
+    box-shadow: 0 0 2px #000;
+  }
+}
+
+.fade-in {
+  animation:  fadeIn calc(var(--timeout) * 1ms) ease-in-out 0s forwards;
+}
+.fade-out {
+  animation:  fadeOut calc(var(--timeout) * 1ms) ease-in-out 0s forwards;
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes particles {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+    background-color: $base-color;
+    transform: scale(.95);
+  }
+  70% {
+    transform: scale(.7);
+    opacity: .4;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}

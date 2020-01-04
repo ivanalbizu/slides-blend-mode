@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <title>Transición de imágenes</title>
+</head>
+<body>
+  <div class="viewport">
+    <div class="js-container"></div>
+    <div class="nav">
+      <button class="nav__control" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" class="js-navigation js-prev" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path d="M11 17l-5-5 5-5M18 17l-5-5 5-5" /></svg>
+      </button>
+      <button class="nav__control" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" class="js-navigation js-next" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 17l5-5-5-5M6 17l5-5-5-5"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="thumbs">
+    <img data-slide="slide-0" class="thumb js-thumb thumb--active" src="img/beauty.jpg" alt="">
+    <img data-slide="slide-1" class="thumb js-thumb" src="img/girl.jpg" alt="">
+    <img data-slide="slide-2" class="thumb js-thumb" src="img/model.jpg" alt="">
+    <img data-slide="slide-3" class="thumb js-thumb" src="img/snow.jpg" alt="">
+    <img data-slide="slide-4" class="thumb js-thumb" src="img/woman.jpg" alt="">
+  </div>
+  <div class="options">
+    <select name="blend-mode" id="blend-mode">
+      <option value="unset">unset</option>
+      <option value="normal">normal</option>
+      <option value="multiply">multiply</option>
+      <option value="screen">screen</option>
+      <option value="overlay">overlay</option>
+      <option value="darken">darken</option>
+      <option value="lighten">lighten</option>
+      <option value="color-dodge">color-dodge</option>
+      <option value="color-burn">color-burn</option>
+      <option value="hard-light">hard-light</option>
+      <option value="soft-light">soft-light</option>
+      <option value="difference">difference</option>
+      <option value="exclusion">exclusion</option>
+      <option value="hue">hue</option>
+      <option value="saturation">saturation</option>
+      <option value="color">color</option>
+      <option value="luminosity">luminosity</option>
+    </select>
+    <input name="bg-mode" id="bg-mode" type="color">
+  </div>
+</body>
+</html>
