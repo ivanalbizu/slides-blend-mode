@@ -128,10 +128,10 @@ button {
 }
 
 .fade-in {
-  animation:  fadeIn calc(var(--timeout) * 1ms) ease-in-out 0s forwards;
+  animation: fadeIn calc(var(--timeout) * 1ms) ease-in-out 0s forwards;
 }
 .fade-out {
-  animation:  fadeOut calc(var(--timeout) * 1ms) ease-in-out 0s forwards;
+  animation: fadeOut calc(var(--timeout) * 1ms) ease-in-out 0s forwards;
 }
 
 
